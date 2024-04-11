@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis Boucherie</title>
     <style>
+        :root {
+            /* Define base font size for h2 */
+            --h2-font-size: 16px; /* Adjust based on your design */
+        }    
         body {
             font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
             background-color: #ffffff;
@@ -28,11 +32,11 @@
             font-size: 16px;
         }
         h2 {
-            font-size: 16px; 
-            color: #002b2b; 
-            margin-top: -10px; 
-            margin-bottom: 20px;
-            font-weight: normal; 
+            font-size: var(--h2-font-size);
+            color: #002b2b;
+            margin-top: calc(var(--h2-font-size) * -0.65); /* Margin as a ratio of the font size */
+            margin-bottom: calc(var(--h2-font-size) * 1.25);
+            font-weight: normal;
         }
         h3 {
             font-size: 16px;
@@ -41,6 +45,10 @@
             font-weight: normal;
         }
         @media (max-width: 768px) {
+            :root {
+                /* Adjust the base font size for smaller screens */
+                --h2-font-size: 28px; /* Adjust based on your responsive design */
+            }    
             body {
                 font-size: 20px; 
             }
