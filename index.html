@@ -47,17 +47,16 @@
             font-weight: normal;
         }
         .social-links a {
-            display: inline; /* Ensure social links are inline */
-            margin-right: 0px; /* Add a little space between links */
+            display: inline-block;
+            color: #0000EE; /* Set link color */
         }
         .social-links a::after {
             content: '|'; /* Add pipe after each link */
             color: #000; /* Set the pipe color to black */
-            padding-left: 0;
+            padding-left: 0px; /* No space after the link */
         }
-        /* Remove the last pipe */
         .social-links a:last-child::after {
-            content: '';
+            content: ''; /* Remove pipe for the last link */
         }
         @media (max-width: 768px) {
             :root {
