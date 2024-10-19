@@ -50,13 +50,11 @@
             display: inline-block;
             color: #0000EE; /* Set link color */
         }
-        .social-links a + a::before {
-            content: '|'; /* Add pipe before each link except the first one */
-            color: #000; /* Set the pipe color to black */
-            margin: 0; /* Remove any margins */
-        }
-        .social-links a:last-child::after {
-            content: ''; /* Remove pipe for the last link */
+        .social-links a:not(:last-child)::after {
+            content: '|'; /* Add pipe after every link except the last one */
+            color: #000; /* Pipe color */
+            padding-left: 0; /* Ensure no space before the pipe */
+            padding-right: 0; /* No extra space after the pipe */
         }
         @media (max-width: 768px) {
             :root {
