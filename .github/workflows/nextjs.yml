@@ -20,7 +20,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+        with:
+          cache-dependency-path: subdir/package-lock.json
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
