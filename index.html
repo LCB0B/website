@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSV Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Index TSV Viewer</h1>
+    <table id="tsvTable"></table>
+
+    <script>
+        async function loadTSV() {
+            const response = await fetch('index.tsv'); // Fetch the TSV file
+            const data = await response.text(); // Get the text content
+            const rows = data.split('\n'); // Split into rows
+            
+            const table = document.getElementById('tsvTable');
+            rows.forEach((row, index) => {
+                const cols = row.split('\t'); // Split by tab
+                const tr = document.createElement('tr');
+                cols.forEach(col => {
+                    const cell = document.createElement(index === 0 ? 'th' : 'td'); // Header or data cell
+                    cell.textContent = col.trim();
+                    tr.appendChild(cell);
+                });
+                table.appendChild(tr);
+            });
+        }
+
+        loadTSV();
+    </script>
+</body>
+</html>
