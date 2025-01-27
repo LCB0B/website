@@ -20,13 +20,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          cache-dependency-path: subdir/package-lock.json
-          node-version: 20
-          cache: 'npm'
-      - run: npm ci
-      - run: npm test
-
+      
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -41,7 +35,6 @@ jobs:
           else
             echo "Unable to determine package manager"
             exit 1
-          fi
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -64,10 +57,13 @@ jobs:
 
       - name: Install dependencies
         run: |
+          if [ ! -f package-lock.json ]; then
+            npm install
+          fi
           if [ "${{ steps.detect-package-manager.outputs.manager }}" = "yarn" ]; then
             yarn install
           else
-            npm install
+            npm ci
           fi
       
       - name: Build with Next.js
