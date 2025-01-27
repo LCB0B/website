@@ -1,9 +1,11 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "homepage": "https://lcbob.github.io/website", // Replace with your GitHub Pages URL
+  "private": true,
   "scripts": {
+    "dev": "next dev",
     "build": "next build && next export",
+    "start": "next start",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
