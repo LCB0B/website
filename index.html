@@ -29,7 +29,7 @@
 
     <script>
         async function loadTSV() {
-            const response = await fetch('index.tsv'); // Fetch the TSV file
+            const response = await fetch('pages/index.tsv'); // Fetch the TSV file
             const data = await response.text(); // Get the text content
             const rows = data.split('\n'); // Split into rows
             
