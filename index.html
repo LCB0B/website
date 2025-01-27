@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSV Viewer</title>
+    <title>Index TSV Viewer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
         }
         table {
             border-collapse: collapse;
             width: 100%;
+            margin-top: 20px;
         }
         th, td {
             border: 1px solid #ddd;
@@ -21,6 +24,9 @@
             background-color: #f4f4f4;
             text-align: left;
         }
+        h1 {
+            color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -29,24 +35,31 @@
 
     <script>
         async function loadTSV() {
-            const response = await fetch('pages/index.tsv'); // Fetch the TSV file
-            const data = await response.text(); // Get the text content
-            const rows = data.split('\n'); // Split into rows
-            
-            const table = document.getElementById('tsvTable');
-            rows.forEach((row, index) => {
-                const cols = row.split('\t'); // Split by tab
-                const tr = document.createElement('tr');
-                cols.forEach(col => {
-                    const cell = document.createElement(index === 0 ? 'th' : 'td'); // Header or data cell
-                    cell.textContent = col.trim();
-                    tr.appendChild(cell);
+            try {
+                const response = await fetch('index.tsv'); // Fetch the TSV file from the root directory
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.text(); // Get the text content of the TSV file
+                const rows = data.split('\n'); // Split the content into rows
+                
+                const table = document.getElementById('tsvTable');
+                rows.forEach((row, index) => {
+                    const cols = row.split('\t'); // Split each row into columns
+                    const tr = document.createElement('tr');
+                    cols.forEach(col => {
+                        const cell = document.createElement(index === 0 ? 'th' : 'td'); // Header or data cell
+                        cell.textContent = col.trim(); // Trim whitespace
+                        tr.appendChild(cell);
+                    });
+                    table.appendChild(tr);
                 });
-                table.appendChild(tr);
-            });
+            } catch (error) {
+                console.error('Error loading the TSV file:', error);
+            }
         }
 
-        loadTSV();
+        loadTSV(); // Load the TSV file and populate the table
     </script>
 </body>
 </html>
