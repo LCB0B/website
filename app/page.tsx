@@ -1,3 +1,5 @@
+"use client"; // Enables client-side React features
+
 import { useState } from 'react';
 import type { NextPage } from 'next';
 
