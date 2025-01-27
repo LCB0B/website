@@ -9,14 +9,33 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20.x' # Use a compatible Node.js version
+          node-version: '20.x' # Ensure you're using a Next.js-compatible Node.js version
+          cache: 'npm'         # Enables automatic caching for npm dependencies
+
+      # Step 3: Cache the Next.js build output
+      - name: Cache Next.js Build
+        uses: actions/cache@v3
+        with:
+          path: .next/cache    # Cache the Next.js build directory
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
+
+      # Step 4: Install dependencies
       - run: npm install
+
+      # Step 5: Build the project
       - run: npm run build
-      - name: Deploy
+
+      # Step 6: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
