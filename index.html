@@ -7,12 +7,12 @@
     <style>
         :root {
             /* Define base font size for h2 */
-            --h2-font-size: 16px; /* Adjust based on your design */
+            --h2-font-size: 16px; 
         }
 
         body {
             font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-            background-color: #fafafa; /* Slightly off-white for a retro feel */
+            background-color: #fafafa; 
             color: #002b2b;
             text-align: left;
             padding: 20px;
@@ -22,7 +22,6 @@
 
         h1 {
             font-size: 16px;
-            /* Optional blinking caret after name for a nerdy retro terminal feel */
             position: relative;
         }
         h1::after {
@@ -30,7 +29,6 @@
             display: inline-block;
             margin-left: 6px;
             animation: blink 1s step-start infinite alternate;
-            /* Subtle retro glow for the caret */
             text-shadow: 0 0 0.2px #00e0a0;
         }
         @keyframes blink {
@@ -42,7 +40,7 @@
         h2 {
             font-size: var(--h2-font-size);
             color: #002b2b;
-            margin-top: calc(var(--h2-font-size) * -0.65); /* Margin as a ratio of the font size */
+            margin-top: calc(var(--h2-font-size) * -0.65); 
             margin-bottom: calc(var(--h2-font-size) * 1.25);
             font-weight: normal;
         }
@@ -59,9 +57,8 @@
             padding-left: 0;
         }
 
-        /* Link Styles: No underline by default, appear on hover */
         a {
-            color: #0044aa; /* A bit more blue than before */
+            color: #0044aa; 
             text-decoration: none;
             font-size: 16px;
             display: block;
@@ -70,16 +67,14 @@
         }
         a:hover {
             text-decoration: underline;
-            color: #0066dd; /* Brighter on hover */
+            color: #0066dd; 
         }
 
-        /* Social links consistent styling */
         .social-links a {
             display: inline-block;
             margin-right: 10px;
         }
 
-        /* Horizontal rule after links for a retro console-like separation */
         hr {
             border: none;
             border-top: 1px dashed #aaa;
@@ -87,8 +82,7 @@
 
         @media (max-width: 768px) {
             :root {
-                /* Adjust the base font size for smaller screens */
-                --h2-font-size: 28px; /* Adjust based on your responsive design */
+                --h2-font-size: 28px; 
             }
             body {
                 font-size: 20px;
@@ -139,7 +133,6 @@
         <b>visualization:</b> <a href="fashion.html">fashion</a>
     </p>
 <footer style="margin-top: 30px;">
-    <!-- Subtle dotted hr for retro style separation -->
     <hr style="border-top: 1px dotted #aaa; margin: 1em auto; width: 50%; opacity: 0.3;">
     <p style="text-align: center; font-size: 12px; color: #555;">
         &copy; 2025 Louis Boucherie. All rights reserved.
