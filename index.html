@@ -9,30 +9,36 @@
             /* Define base font size for h2 */
             --h2-font-size: 16px; /* Adjust based on your design */
         }
+
         body {
             font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-            background-color: #ffffff;
+            background-color: #fafafa; /* Slightly off-white for a retro feel */
             color: #002b2b;
             text-align: left;
             padding: 20px;
             margin: 0;
             max-width: 700px;
         }
-        .links-container {
-            margin-top: 20px;
-            margin-bottom: 30px;
-            padding-left: 0;
-        }
-        a {
-            color: #0000EE;
-            text-decoration: underline;
-            font-size: 16px;
-            display: block;
-            margin-bottom: 4px;
-        }
+
         h1 {
             font-size: 16px;
+            /* Optional blinking caret after name for a nerdy retro terminal feel */
+            position: relative;
         }
+        h1::after {
+            content: "_";
+            display: inline-block;
+            margin-left: 6px;
+            animation: blink 1s step-start infinite alternate;
+            /* Subtle retro glow for the caret */
+            text-shadow: 0 0 0.2px #00e0a0;
+        }
+        @keyframes blink {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
         h2 {
             font-size: var(--h2-font-size);
             color: #002b2b;
@@ -43,13 +49,42 @@
         h3 {
             font-size: 16px;
             color: #002b2b;
-            margin-bottom: 10px;
+            margin-bottom: 1px;
             font-weight: normal;
         }
+
+        .links-container {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+
+        /* Link Styles: No underline by default, appear on hover */
+        a {
+            color: #0044aa; /* A bit more blue than before */
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0066dd; /* Brighter on hover */
+        }
+
+        /* Social links consistent styling */
         .social-links a {
             display: inline-block;
-            color: #0000EE; /* Set link color */
+            margin-right: 10px;
         }
+
+        /* Horizontal rule after links for a retro console-like separation */
+        hr {
+            border: none;
+            border-top: 1px dashed #aaa;
+        }
+
         @media (max-width: 768px) {
             :root {
                 /* Adjust the base font size for smaller screens */
@@ -89,12 +124,15 @@
         </div>
     </div>
 
+    <hr>
+
     <p>
-        <b>about:</b> i work at the technical university of denmark and statistics denmark, studying human behavior and social networks using machine learning.
+        <b>about:</b><br>
+        	researcher at the technical university of denmark and statistics denmark, studying human behavior and social networks using machine learning.
     </p>
 
     <p>
-        <b>last preprint:</b> <a href="https://arxiv.org/pdf/2405.08746" target="_blank">decomposing geographical and universal aspects of human mobility</a>
+        <b>lastest preprint:</b> <a href="https://arxiv.org/pdf/2405.08746" target="_blank">decomposing geographical and universal aspects of human mobility</a>
     </p>
 
     <p>
