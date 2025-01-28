@@ -7,25 +7,57 @@
     <style>
         body {
             font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-            background-color: #000000;
+            background-color: #000000; 
             color: #DDDDDD;
             text-align: left;
             padding: 20px;
             margin: 0;
             max-width: 1400px;
         }
+        
         h1 {
             font-size: 14px;
+            position: relative; 
         }
+        h1::after {
+            content: "_";
+            display: inline-block;
+            margin-left: 6px;
+            animation: blink 1s step-start infinite alternate;
+            text-shadow: 0 0 0.5px #00e0a0;
+        }
+        @keyframes blink {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        
         .gif-container {
             margin-top: 10px;
         }
+        
         img {
             max-width: 100%;
             height: auto;
             width: 100%;
-            max-width: 600px; /* Ensure the maximum width of the image is 600px */
+            max-width: 600px;
         }
+        
+        a {
+            color: #66aaff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #99ccff;
+        }
+        
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px dashed #555;
+        }
+        
         @media (max-width: 768px) {
             body {
                 padding: 10px;
@@ -37,10 +69,14 @@
     </style>
 </head>
 <body> 
-    <h1>fashion gif - <a href="https://github.com/LCB0B/SF-fashion">source</a> 
+    <h1>fashion gif - <a href="https://github.com/LCB0B/SF-fashion">source</a></h1>
+
     <div class="gif-container">
         <img src="image/d.gif" alt="Visualization GIF">
     </div>
+    
+    <hr>
+
     <p><a href="index.html">back to home</a></p>
 </body>
 </html>
