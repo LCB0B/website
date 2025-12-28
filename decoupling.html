@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decoupling Geographical Constraints from Human Mobility</title>
+    <meta name="description" content="Project page for Decoupling Geographical Constraints from Human Mobility - Nature Human Behaviour 2025">
+    <meta name="author" content="Louis Boucherie">
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Header */
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-title {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .project-venue {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-authors {
+            font-size: 1em;
+            color: #444;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .project-authors a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .project-authors a:hover {
+            text-decoration: underline;
+        }
+
+        .project-authors strong {
+            font-weight: 600;
+        }
+
+        /* Links */
+        .project-links {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .project-links a {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+
+        .project-links a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Figures */
+        .figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .figure-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            line-height: 1.5;
+        }
+
+        /* BibTeX */
+        .bibtex-container {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .bibtex-container pre {
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 0.85em;
+            line-height: 1.5;
+            color: #444;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .project-title {
+                font-size: 1.6em;
+            }
+
+            .project-links a {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="project-header">
+            <h1 class="project-title">Decoupling Geographical Constraints from Human Mobility</h1>
+            <div class="project-venue">Nature Human Behaviour, 2025</div>
+            <div class="project-authors">
+                <a href="index.html"><strong>Louis Boucherie</strong></a><sup>1,2</sup>, 
+                <a href="https://benmaier.github.io/" target="_blank">Benjamin F. Maier</a><sup>1,2</sup>,
+                <a href="https://sunelehmann.com/" target="_blank">Sune Lehmann</a><sup>1,2</sup>
+            </div>
+            <div class="project-affiliations" style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                <sup>1</sup>DTU Compute, Technical University of Denmark<br>
+                <sup>2</sup>Center for Social Data Science, University of Copenhagen
+            </div>
+        </header>
+
+        <div class="project-links">
+            <a href="https://communities.springernature.com/posts/decoupling-geographical-constraints-from-human-mobility" target="_blank">[Blog]</a>
+            <a href="https://nature.com/articles/s41562-025-02282-7" target="_blank">[Paper]</a>
+            <a href="https://arxiv.org/abs/2405.08746" target="_blank">[arXiv]</a>
+            <a href="https://github.com/LCB0B/role-of-geo" target="_blank">[Code]</a>
+            <a href="https://zenodo.org/records/14329837" target="_blank">[Data]</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="image/figure_1-8.png" alt="Decoupling Geography from Human Mobility">
+            <p class="hero-caption">Figure 1: Illustration of geography's influence on human mobility. Three geographies (Real Denmark, Disk Denmark, Uniform Denmark) demonstrate how the pair distribution captures geographical structure and affects observed mobility patterns.</p>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Overview</h2>
+            <p>
+                In our paper published in Nature Human Behaviour, we explore how geography shapes human movement. Using uniquely precise residential mobility data from Denmark spanning 40 years and covering 39 million moves, we found surprising insights about the universal patterns underlying human mobility.
+            </p>
+            <p>
+                Human movement data typically shows power law patterns, where travel likelihood decreases predictably with distance. However, raw mobility data often shows anomalies due to geographical constraints — the shape of landmasses, lakes, rivers, and the placement of buildings, roadways, and cities all influence where people can actually move.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Key Findings</h2>
+            <p>
+                <strong>The Pair Distribution Method:</strong> We realized that not all residential moves are possible — one can generally only move between places where a house is actually present. By calculating the pairwise distances between all addresses (the "pair distribution"), we capture precisely which moves are possible to make.
+            </p>
+            <p>
+                <strong>A Universal Power Law:</strong> Normalizing mobility data by the pair distribution reveals an astonishingly clear result: a perfect power law spanning five orders of magnitude — from 10 meters up to 1,000 kilometers. This remarkable finding held true across datasets from Denmark, France, Houston, Singapore, and San Francisco.
+            </p>
+            <p>
+                <strong>Beyond the Gravity Law:</strong> Our discovery aligns closely with the classic gravity model but generalizes it into a continuous, geography-independent form. The pair distribution allows us to take the idea of population to a continuous limit, at the fine scale of individual addresses.
+            </p>
+            <p>
+                <strong>City-Scale Patterns:</strong> When considering mobility centered around a single city, we observed a universal piecewise behavior: one power law governs within-city mobility (where distance matters less), while another steeper power law describes between-city moves. This pattern appeared consistently across more than a thousand Danish towns.
+            </p>
+        </section>
+
+        <div class="figure">
+            <img src="image/figure_3a4-4.png" alt="Power law results">
+            <p class="figure-caption">Figure 2: Renormalizing the moving distance distribution by the pair distribution uncovers a power law spanning five orders of magnitude (10m to 500km). Results shown for Denmark, France, San Francisco, Houston, and Singapore.</p>
+        </div>
+
+        <section class="section">
+            <h2 class="section-title">Summary</h2>
+            <p>
+                By explicitly accounting for geography using the pair distribution, we found a universal power law governing human mobility — a pattern consistent across residential moves in Denmark and France, and daily movements in cities like Houston, Singapore, and San Francisco. The pair-distribution methodology opens up new avenues for understanding commuting patterns, demographic variations in mobility, and the critical role of geography in shaping human movement.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">BibTeX</h2>
+            <div class="bibtex-container">
+                <pre>@article{boucherie2025decoupling,
+  title={Decoupling geographical constraints from human mobility},
+  author={Boucherie, Louis and Maier, Benjamin F. and Lehmann, Sune},
+  journal={Nature Human Behaviour},
+  year={2025},
+  publisher={Nature Publishing Group}
+}</pre>
+            </div>
+        </section>
+
+        <footer>
+            <a href="index.html">← Back to Homepage</a>
+            <p style="margin-top: 15px;">&copy; 2025 Louis Boucherie</p>
+        </footer>
+    </div>
+</body>
+</html>
