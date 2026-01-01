@@ -1,2 +1,5 @@
+*.pdf
+*.md
+*claude*
 .DS_Store
 
