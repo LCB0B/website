@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Boucherie</title>
+    <meta name="description" content="Louis Boucherie's academic website. Explore publications, codes.">
+    <meta name="author" content="Louis Boucherie">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Louis Boucherie">
+    <meta property="og:description" content="Postdoctoral Researcher at DTU & University of Copenhagen. Research on human mobility, networks, and computational social science.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sihanxu.me/">
+    <meta property="og:image" content="https://sihanxu.me/image/favicon.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Louis Boucherie">
+    <meta name="twitter:description" content="Postdoctoral Researcher at DTU & University of Copenhagen. Research on human mobility, networks, and computational social science.">
+    <meta name="twitter:image" content="https://sihanxu.me/image/favicon.png">
+
+    <link rel="icon" href="image/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background-color: #0066cc;
+            color: #fff;
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #222;
+            text-decoration: none;
+        }
+
+        .navbar-brand:hover {
+            color: #222;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .navbar-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #0066cc;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-links a:hover {
+            color: #0066cc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px 60px 40px;
+        }
+
+        /* Header Section */
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 4px;
+            font-weight: 300;
+        }
+
+        .affiliation {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .email {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .email-link {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-top: 50px;
+        }
+
+        .section-publications {
+            background-color: #f5f5f5;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            padding: 30px calc(50vw - 50%);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            color: #444;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .section p a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .section p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Publication Card */
+        .publication {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 18px;
+            align-items: center;
+            padding: 16px;
+            margin-left: -16px;
+            margin-right: -16px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .publication:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .publication-image {
+            flex-shrink: 0;
+            width: 280px;
+            height: auto;
+            perspective: 1000px;
+        }
+
+        .publication-image-inner {
+            position: relative;
+            width: 100%;
+            padding-bottom: 70%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .publication-image:hover .publication-image-inner {
+            transform: rotateY(180deg);
+        }
+
+        .publication-image-front,
+        .publication-image-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .publication-image-front img,
+        .publication-image-back img {
+            max-width: calc(100% - 10px);
+            max-height: calc(100% - 10px);
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .publication-image-back {
+            transform: rotateY(180deg);
+        }
+
+        .publication-image-placeholder {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .publication-content {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .publication-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .publication-image a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .publication-venue {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .publication-authors {
+            font-size: 0.95em;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .publication-authors strong {
+            font-weight: 600;
+        }
+
+        .publication-links a {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+
+        .publication-links a:hover {
+            color: #004499;
+            text-decoration: underline;
+        }
+
+        /* Visualizations */
+        .publication-reversed {
+            flex-direction: row-reverse;
+        }
+
+        .publication-reversed .publication-content {
+            text-align: right;
+        }
+
+        .publication-reversed .publication-links {
+            justify-content: flex-end;
+        }
+
+        .publication-reversed .publication-links a {
+            margin-right: 0;
+            margin-left: 20px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+
+            .navbar a {
+                margin-left: 15px;
+                font-size: 0.85em;
+            }
+
+            .container {
+                padding: 80px 20px 40px 20px;
+            }
+
+            .name {
+                font-size: 2em;
+            }
+
+            .social-links a {
+                display: inline-block;
+                margin-bottom: 8px;
+            }
+
+            .publication {
+                flex-direction: column;
+            }
+
+            .publication-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .publication-image-inner {
+                padding-bottom: 55%;
+            }
+
+            .publication-content {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#about" class="navbar-brand">Louis Boucherie</a>
+            <div class="navbar-links">
+                <a href="#about">About</a>
+                <a href="#publications">Research</a>
+                <a href="#visualizations">Visualizations</a>
+                <a href="index.html">Minimal</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header" id="about">
+            <h1 class="name">Louis Boucherie</h1>
+            <div class="affiliation">Researcher at <a href="https://github.com/SocialComplexityLab/ResearchGroup/wiki" target="_blank">DTU</a>, <a href="https://sodas.ku.dk/" target="_blank">Copenhagen Center for Social Data Science</a>, and <a href="https://mirand.ai" target="_blank">mirand.ai</a></div>
+            <div class="email">Email: <a href="mailto:louibo@dtu.dk" class="email-link">louibo [at] dtu [dot] dk</a></div>
+
+            <div class="social-links">
+                <a href="https://scholar.google.com/citations?user=UtfTBZ4AAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://github.com/LCB0B" target="_blank">Github</a>
+                <a href="https://huggingface.co/lcbob" target="_blank">Huggingface</a>
+                <a href="https://bsky.app/profile/louisboucherie.com" target="_blank">Bluesky</a>
+                <a href="https://www.linkedin.com/in/louis-boucherie" target="_blank">LinkedIn</a>
+            </div>
+        </header>
+
+        <section class="section section-publications" id="publications">
+            <h2 class="section-title">Selected Publications</h2>
+
+            <!-- Publication 1 -->
+            <div class="publication">
+                <div class="publication-image">
+                    <a href="project/decoupling.html">
+                    <div class="publication-image-inner">
+                        <div class="publication-image-front">
+                            <img src="image/decoupling_back.png" alt="Publication Figure" loading="lazy">
+                        </div>
+                        <div class="publication-image-back">
+                            <img src="image/publication_back.png" alt="Publication Figure Back" loading="lazy">
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="project/decoupling.html">Decoupling Geographical Constraints from Human Mobility</a></div>
+                    <div class="publication-venue">Nature Human Behaviour, 2025</div>
+                    <div class="publication-authors">
+                        <strong>Louis Boucherie</strong>, Benjamin F. Maier, Sune Lehmann
+                    </div>
+                    <div class="publication-links">
+                        <a href="project/decoupling.html">[Project]</a>
+                        <a href="https://communities.springernature.com/posts/decoupling-geographical-constraints-from-human-mobility" target="_blank">[Blog]</a>
+                        <a href="https://arxiv.org/abs/2405.08746" target="_blank">[arXiv]</a>
+                        <a href="https://nature.com/articles/s41562-025-02282-7" target="_blank">[Paper]</a>
+                        <a href="https://github.com/LCB0B/role-of-geo" target="_blank">[Code]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication 2: Adaptive Cut -->
+            <div class="publication">
+                <div class="publication-image">
+                    <a href="project/adaptive_cut.html">
+                    <div class="publication-image-inner">
+                        <div class="publication-image-front">
+                            <img src="image/adaptive_front.png" alt="Adaptive Cut Figure 1" loading="lazy">
+                        </div>
+                        <div class="publication-image-back">
+                            <img src="image/adaptive_back.png" alt="Adaptive Cut Figure 2" loading="lazy">
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="project/adaptive_cut.html">Adaptive Cut Reveals Multiscale Complexity in Networks</a></div>
+                    <div class="publication-venue">Preprint, arXiv 2025</div>
+                    <div class="publication-authors">
+                        <strong>Louis Boucherie</strong>, Yong-Yeol Ahn, Sune Lehmann
+                    </div>
+                    <div class="publication-links">
+                        <a href="project/adaptive_cut.html">[Project]</a>
+                        <a href="https://arxiv.org/abs/2512.08741" target="_blank">[arXiv]</a>
+                        <a href="https://github.com/LCB0B/adaptive_cut" target="_blank">[Code]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publication 3: Beauty Standards -->
+            <div class="publication">
+                <div class="publication-image">
+                    <div class="publication-image-inner">
+                        <div class="publication-image-front">
+                            <img src="image/beauty_front.png" alt="Beauty Measurements" loading="lazy">
+                        </div>
+                        <div class="publication-image-back">
+                            <img src="image/beauty_back.png" alt="Beauty Network Analysis" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="publication-content">
+                    <div class="publication-title">Cultural Evolution of Human Beauty Standards</div>
+                    <div class="publication-venue">Preprint, arXiv 2025</div>
+                    <div class="publication-authors">
+                        <strong>Louis Boucherie</strong>, Sagar Kumar, Katharina Ledebur, August Lohse, Karolina Sliwa
+                    </div>
+                    <div class="publication-links">
+                        <a href="https://arxiv.org/abs/2512.08861" target="_blank">[arXiv]</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section" id="visualizations">
+            <h2 class="section-title">Visualizations</h2>
+
+            <!-- Visualization 1: Fashion -->
+            <div class="publication publication-reversed">
+                <div class="publication-image">
+                    <a href="fashion.html">
+                    <div class="publication-image-inner">
+                        <div class="publication-image-front">
+                            <img src="image/fashion_thumb.png" alt="Fashion Visualization" loading="lazy">
+                        </div>
+                        <div class="publication-image-back">
+                            <img src="image/fashion_back.png" alt="Fashion Visualization" loading="lazy">
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="fashion.html">Fashion</a></div>
+                        <div class="publication-venue">GIF of "Défilé Louis Vuitton Prêt à porter automne-hiver 2022-2023 - Paris - Elle" with background removed using RMBG-2.0 and compressed as JPEG.</div>
+                    <div class="publication-links">
+                        <a href="fashion.html">[View]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization 2: dk2vec -->
+            <div class="publication publication-reversed">
+                <div class="publication-image">
+                    <a href="dk.html">
+                    <div class="publication-image-inner">
+                        <div class="publication-image-front">
+                            <img src="image/dk_thumb.png" alt="dk2vec Visualization" loading="lazy">
+                        </div>
+                        <div class="publication-image-back">
+                            <img src="image/dk_back.png" alt="dk2vec Visualization" loading="lazy">
+                        </div>
+                    </div>
+                    </a>
+                </div>
+                <div class="publication-content">
+                    <div class="publication-title"><a href="dk.html">dk2vec</a></div>
+                        <div class="publication-venue">Node2vec embedding of the Danish residential mobility network, projected to 2D with UMAP.</div>
+                    <div class="publication-links">
+                        <a href="dk.html">[View]</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Louis Boucherie. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>
