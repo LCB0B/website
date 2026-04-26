@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
+    "build:posts": "node scripts/build_posts.js",
     "start": "next start",
     "deploy": "gh-pages -d out"
   },
@@ -14,6 +15,7 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "gh-pages": "latest"
+    "gh-pages": "latest",
+    "marked": "^18.0.2"
   }
 }

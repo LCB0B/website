@@ -1,5 +1,7 @@
 *.pdf
 *.md
+!posts/*.md
 *claude*
 .DS_Store
-
+*.tex
+node_modules/
