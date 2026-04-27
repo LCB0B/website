@@ -8,7 +8,7 @@ In our new paper published in [Nature Human Behavior](https://www.nature.com/art
 
 Our investigation began with a unique dataset, 40 years of residential relocations for every single person in an entire nation — the country of Denmark. In total, our dataset covers 39 million moves, each located with a precision of two meters. Human movement data typically shows power law patterns, where travel likelihood decreases predictably with distance. However, our Danish data initially looked completely different from the usual power law behavior (the orange line in figure 1a). We observed distinct spikes around 180 kilometers, precisely matching distances between major Danish cities, such as Copenhagen-Aarhus (188 km), Copenhagen-Odense (164.11 km), and Odense-Aalborg (185.98 km). These anomalies immediately indicated some of the ways that geography influences mobility patterns.
 
-![Figure 1 from the paper](../image/blog_decoupling_fig1.png)
+![Figure 1 from the paper](../../image/blog_decoupling_fig1.png)
 *Figure 1. Mobility data from Denmark and the pair distribution reveal a universal power law across five orders of magnitude.*
 
 ## A Very Straight Line
@@ -21,7 +21,7 @@ If you are familiar with human mobility you might recognize this pattern as remi
 
 We find that our discovery does indeed align closely with the gravity model but goes further by generalizing it into a continuous, geography-independent form (figure 2a). Traditional gravity laws are discrete, depending on population size defined by administrative boundaries. As we discussed above, our approach uses the concept of the "pair distribution", to measure the distribution of distances between every pair of addresses. A neat take on our result is that the pair distribution allows us to take the idea of a population within some area to the continuous limit. When two cities are far apart, the pair distribution becomes concentrated (like a sharp spike) at their separating distance, effectively mirroring the gravity model's "mass-product" (population product) term but at the much finer scale of individual addresses (figure 2b).
 
-![Figure 2 from the paper](../image/blog_decoupling_fig2.png)
+![Figure 2 from the paper](../../image/blog_decoupling_fig2.png)
 *Figure 2. From the universal power law to a continuous gravity model and the piecewise behavior at city scale.*
 
 ## Actually, There Is More to It...

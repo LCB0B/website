@@ -6,7 +6,7 @@
     <title>Louis Boucherie / blog / Decoupling geographical constraints from human mobility</title>
     <meta name="description" content="Decoupling geographical constraints from human mobility">
     <meta name="author" content="Louis Boucherie">
-    <link rel="icon" href="../image/favicon.png" type="image/png">
+    <link rel="icon" href="../../image/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,7 +21,7 @@
             background-color: #fafafa;
             color: #1a2828;
             text-align: left;
-            padding: 20px;
+            padding: 36px 20px 20px 36px;
             margin: 0;
             max-width: 700px;
             display: flex;
@@ -36,19 +36,20 @@
             font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
         }
 
-        h1 {
+        .site-header h1 {
             font-size: 16px;
             color: #3d3833;
-            margin: 0 0 4px 0;
+            font-weight: bold;
+            margin: 0;
         }
-        h1 a {
+        .site-header h1 a {
             color: inherit;
             text-decoration: none;
         }
 
         .top-nav {
-            margin-top: 4px;
-            margin-bottom: 28px;
+            margin-top: -8px;
+            margin-bottom: 18px;
         }
         .top-nav a {
             display: inline-block;
@@ -132,34 +133,34 @@
             body {
                 font-size: 18px;
             }
-            h1 {
-                font-size: 28px;
-            }
-            .top-nav a {
-                font-size: 20px;
-            }
-            #content h1 {
-                font-size: 28px;
-            }
-            #content h2 {
+            .site-header h1 {
                 font-size: 22px;
             }
+            .top-nav a {
+                font-size: 16px;
+            }
+            #content h1 {
+                font-size: 24px;
+            }
+            #content h2 {
+                font-size: 20px;
+            }
             #content p {
-                font-size: 18px;
+                font-size: 17px;
             }
         }
     </style>
 </head>
 <body>
     <div class="site-header">
-        <h1><a href="../">louis boucherie</a></h1>
+        <h1><a href="../../">louis boucherie</a></h1>
         <nav class="top-nav">
-            <a href="../">about</a>
-            <a href="../blog/">blog</a>
-            <a href="../viz/">viz</a>
+            <a href="../../">about</a>
+            <a href="../../blog/">blog</a>
+            <a href="../../viz/">viz</a>
             <a href="https://scholar.google.com/citations?user=UtfTBZ4AAAAJ&hl=en" target="_blank">publications</a>
             <a href="https://github.com/LCB0B" target="_blank">code</a>
-            <a href="../contact/">contact</a>
+            <a href="../../contact/">contact</a>
         </nav>
     </div>
 
@@ -171,14 +172,14 @@
 </blockquote>
 <p>In our new paper published in <a href="https://www.nature.com/articles/s41562-025-02282-7">Nature Human Behavior</a>, &quot;Decoupling geographical constraints from human mobility&quot;, we explore how geography shapes how humans move. Using new, uniquely precise residential mobility data from Denmark, we found surprising insights. We examined how mobility patterns are influenced by the shape of landmasses, lakes, rivers, and the placement of buildings, roadways, and cities.</p>
 <p>Our investigation began with a unique dataset, 40 years of residential relocations for every single person in an entire nation — the country of Denmark. In total, our dataset covers 39 million moves, each located with a precision of two meters. Human movement data typically shows power law patterns, where travel likelihood decreases predictably with distance. However, our Danish data initially looked completely different from the usual power law behavior (the orange line in figure 1a). We observed distinct spikes around 180 kilometers, precisely matching distances between major Danish cities, such as Copenhagen-Aarhus (188 km), Copenhagen-Odense (164.11 km), and Odense-Aalborg (185.98 km). These anomalies immediately indicated some of the ways that geography influences mobility patterns.</p>
-<p><img src="../image/blog_decoupling_fig1.png" alt="Figure 1 from the paper">
+<p><img src="../../image/blog_decoupling_fig1.png" alt="Figure 1 from the paper">
 <em>Figure 1. Mobility data from Denmark and the pair distribution reveal a universal power law across five orders of magnitude.</em></p>
 <h2>A Very Straight Line</h2>
 <p>Specifically, we realized that not all residential moves are possible. One can generally only move between places where a house is actually present (or can be built). There are many areas of space that are simply not accessible for moves. Inspired by techniques from epidemiology, we calculated the pairwise distances between all addresses in Denmark (the blue line in figure 1a). We did this because these pairwise distances precisely capture that moves that are indeed possible to make. This led to a striking finding: Normalizing mobility data by this pairwise geographic distribution suddenly revealed an astonishingly clear result: a perfect power law spanning five orders of magnitude — from 10 meters up to 1,000 kilometers (figure 1b). This remarkable finding held true when we tested additional datasets from residential mobility in France (figure 1f) and even daily movements within major cities like Houston (figure 1c), Singapore (figure 1e), and San Francisco (figure 1d).</p>
 <h2>Just the Gravity Law?</h2>
 <p>If you are familiar with human mobility you might recognize this pattern as reminiscent of the classic &quot;gravity law&quot;, which suggests that the flow between locations decreases proportionally with distance and increases with population size. For example, Chicago and Indianapolis are both 450 km from Detroit, but we would expect far more migration between Detroit and Chicago (a major metropolitan area) than between Detroit and Indianapolis (a much smaller city). Similarly, Dallas would likely exchange more migrants with nearby Houston than with Atlanta, even though Houston and Atlanta are similar-sized cities, because Houston is only 385 km away while Atlanta is over 1,250 km from Dallas.</p>
 <p>We find that our discovery does indeed align closely with the gravity model but goes further by generalizing it into a continuous, geography-independent form (figure 2a). Traditional gravity laws are discrete, depending on population size defined by administrative boundaries. As we discussed above, our approach uses the concept of the &quot;pair distribution&quot;, to measure the distribution of distances between every pair of addresses. A neat take on our result is that the pair distribution allows us to take the idea of a population within some area to the continuous limit. When two cities are far apart, the pair distribution becomes concentrated (like a sharp spike) at their separating distance, effectively mirroring the gravity model&#39;s &quot;mass-product&quot; (population product) term but at the much finer scale of individual addresses (figure 2b).</p>
-<p><img src="../image/blog_decoupling_fig2.png" alt="Figure 2 from the paper">
+<p><img src="../../image/blog_decoupling_fig2.png" alt="Figure 2 from the paper">
 <em>Figure 2. From the universal power law to a continuous gravity model and the piecewise behavior at city scale.</em></p>
 <h2>Actually, There Is More to It...</h2>
 <p>However, the story does not end here. When considering mobility centered around a single city — rather than mobility of an entire country — a more nuanced picture emerges. Instead of a simple global power law, we observed a universal piecewise behavior (figure 2d). Mobility within a city is governed by one power law (which tells us that distance matters less), while another, steeper power law describes moves between cities. The second power law reflects the stronger deterrent of greater distances. This local pattern is universal in the sense that it appeared consistently across more than a thousand Danish towns, highlighting distinct internal dynamics at different spatial scales (figure 2e).</p>

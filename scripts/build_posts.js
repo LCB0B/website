@@ -1,4 +1,4 @@
-// Renders posts/*.md to posts/*.html using a shared template.
+// Renders posts/*.md to blog/{slug}/index.html using a shared template.
 // Run: node scripts/build_posts.js
 
 const fs = require('fs');
@@ -6,6 +6,7 @@ const path = require('path');
 const { marked } = require('marked');
 
 const POSTS_DIR = path.join(__dirname, '..', 'posts');
+const BLOG_DIR = path.join(__dirname, '..', 'blog');
 const TEMPLATE_PATH = path.join(__dirname, 'post_template.html');
 
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
@@ -21,6 +22,8 @@ for (const file of mdFiles) {
     const out = template
         .replace(/\{\{TITLE\}\}/g, title)
         .replace(/\{\{CONTENT\}\}/g, html);
-    fs.writeFileSync(path.join(POSTS_DIR, slug + '.html'), out);
-    console.log('built', slug + '.html');
+    const outDir = path.join(BLOG_DIR, slug);
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), out);
+    console.log('built blog/' + slug + '/index.html');
 }
