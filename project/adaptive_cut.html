@@ -6,6 +6,13 @@
     <title>Adaptive Cut Reveals Multiscale Complexity in Networks</title>
     <meta name="description" content="Project page for Adaptive Cut - A novel method for multi-level dendrogram cutting using MCMC optimization">
     <meta name="author" content="Louis Boucherie">
+    <link rel="canonical" href="https://louisboucherie.com/project/adaptive_cut.html">
+    <meta property="og:title" content="Adaptive Cut Reveals Multiscale Complexity in Networks">
+    <meta property="og:description" content="Preprint, arXiv 2025 — multi-level dendrogram cutting using MCMC optimization.">
+    <meta property="og:url" content="https://louisboucherie.com/project/adaptive_cut.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://louisboucherie.com/image/adaptive_front.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="../image/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -61,6 +68,12 @@
 
         .topbar-title:hover {
             color: #0066cc;
+        }
+
+        .topbar-links {
+            display: flex;
+            gap: 18px;
+            flex-shrink: 0;
         }
 
         .topbar-home {
@@ -312,6 +325,21 @@
             text-decoration: underline;
         }
 
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin: 8px;
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .topbar {
@@ -361,11 +389,17 @@
     </style>
 </head>
 <body>
+    <a href="#main" class="skip-link">skip to content</a>
     <!-- Top Navigation Bar -->
     <nav class="topbar">
         <div class="topbar-content">
-            <a href="#" class="topbar-title">Adaptive Cut Reveals Multiscale Complexity in Networks</a>
-            <a href="../index.html" class="topbar-home">Louis Boucherie</a>
+            <a href="../index.html" class="topbar-title">Louis Boucherie</a>
+            <div class="topbar-links">
+                <a href="../" class="topbar-home">about</a>
+                <a href="../blog/" class="topbar-home">blog</a>
+                <a href="../viz/" class="topbar-home">viz</a>
+                <a href="../contact/" class="topbar-home">contact</a>
+            </div>
         </div>
     </nav>
 
@@ -384,7 +418,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="main-content">
+        <main id="main" class="main-content">
             <header class="project-header">
                 <h1 class="project-title">Adaptive Cut Reveals Multiscale Complexity in Networks</h1>
                 <div class="project-venue">Preprint, arXiv 2025</div>

@@ -6,6 +6,13 @@
     <title>Louis Boucherie / contact</title>
     <meta name="description" content="Contact Louis Boucherie.">
     <meta name="author" content="Louis Boucherie">
+    <link rel="canonical" href="https://louisboucherie.com/contact/">
+    <meta property="og:title" content="Louis Boucherie / contact">
+    <meta property="og:description" content="Contact Louis Boucherie.">
+    <meta property="og:url" content="https://louisboucherie.com/contact/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://louisboucherie.com/image/favicon.png">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" href="../image/favicon.png" type="image/png">
     <style>
         :root {
@@ -107,12 +114,28 @@
                 font-size: 18px;
             }
         }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
-    <main>
+    <a href="#main" class="skip-link">skip to content</a>
+    <main id="main">
         <h1><a href="../">louis boucherie</a></h1>
-        <h2></h2>
+        <h2 aria-hidden="true"></h2>
 
         <nav class="top-nav">
             <a href="../">about</a>

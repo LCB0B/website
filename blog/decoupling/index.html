@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis Boucherie / blog / Decoupling geographical constraints from human mobility</title>
-    <meta name="description" content="Decoupling geographical constraints from human mobility">
+    <meta name="description" content="Decoupling geographical constraints from human mobility — blog post by Louis Boucherie.">
     <meta name="author" content="Louis Boucherie">
+    <link rel="canonical" href="https://louisboucherie.com/blog/decoupling/">
+    <meta property="og:title" content="Decoupling geographical constraints from human mobility">
+    <meta property="og:description" content="Blog post on decoupling geographical constraints from human mobility (Nature Human Behaviour, 2025).">
+    <meta property="og:url" content="https://louisboucherie.com/blog/decoupling/">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://louisboucherie.com/image/blog_decoupling_fig1.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="../../image/favicon.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -162,12 +169,27 @@
                 font-size: 17px;
             }
         }
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
-    <main>
+    <a href="#main" class="skip-link">skip to content</a>
+    <main id="main">
         <h1><a href="../../">louis boucherie</a></h1>
-        <h2></h2>
+        <h2 aria-hidden="true"></h2>
 
         <nav class="top-nav">
             <a href="../../">about</a>

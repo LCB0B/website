@@ -6,6 +6,13 @@
     <title>Louis Boucherie</title>
     <meta name="description" content="Louis Boucherie's academic website. Explore publications, codes.">
     <meta name="author" content="Louis Boucherie">
+    <link rel="canonical" href="https://louisboucherie.com/">
+    <meta property="og:title" content="Louis Boucherie">
+    <meta property="og:description" content="Postdoc in computational social science. Publications, blog, visualizations.">
+    <meta property="og:url" content="https://louisboucherie.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://louisboucherie.com/image/favicon.png">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" href="image/favicon.png" type="image/png">
     <style>
         :root {
@@ -178,12 +185,27 @@
             color: #888;
         }
 
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
-    <main>
+    <a href="#main" class="skip-link">skip to content</a>
+    <main id="main">
         <h1>louis boucherie</h1>
-        <h2></h2>
+        <h2 aria-hidden="true"></h2>
 
         <nav class="top-nav">
             <a href="./">about</a>
@@ -209,7 +231,7 @@
             <br><br>
             My research is in computational social science — combining large-scale human behavior datasets with statistical and machine learning methods.
             I have published in
-            <a href="#" class="inline-link">pnas</a>,
+            pnas,
             <a href="https://www.nature.com/articles/s41562-025-02282-7" target="_blank" class="inline-link">nature human behavior</a>,
             and machine learning conferences
             (<a href="https://openreview.net/forum?id=zsUKE98bNu" target="_blank" class="inline-link">iclr</a>,
