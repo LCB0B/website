@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
         body {
-            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
             background-color: #fafafa;
             color: #1a2828;
             text-align: left;
@@ -32,25 +32,38 @@
             flex: 1 0 auto;
         }
 
-        .site-header {
-            font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-        }
-
-        .site-header h1 {
+        h1 {
             font-size: 16px;
+            position: relative;
             color: #3d3833;
-            font-weight: bold;
         }
-        .site-header h1 a {
+        h1 a {
             color: inherit;
             text-decoration: none;
+            display: inline;
+            font-size: inherit;
+            margin: 0;
         }
-        .site-header h2 {
+
+        h2 {
             font-size: var(--h2-font-size);
             color: #1a2828;
             margin-top: calc(var(--h2-font-size) * -0.65);
             margin-bottom: calc(var(--h2-font-size) * 1.25);
             font-weight: normal;
+        }
+
+        a {
+            color: #0044aa;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0066dd;
         }
 
         .top-nav {
@@ -60,25 +73,19 @@
         .top-nav a {
             display: inline-block;
             margin: 0 18px 0 0;
-            color: #0044aa;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        .top-nav a:hover {
-            text-decoration: underline;
-            color: #0066dd;
         }
 
+        #content {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
         #content h1 {
             font-size: 24px;
             font-weight: 700;
             color: #3d3833;
             margin: 8px 0 6px 0;
             line-height: 1.25;
-            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: inherit;
         }
-
         #content h2 {
             font-size: 18px;
             font-weight: 700;
@@ -86,11 +93,15 @@
             margin-top: 28px;
             margin-bottom: 10px;
         }
-
         #content p {
             font-size: 16px;
             line-height: 1.65;
             margin: 0 0 16px 0;
+        }
+        #content a {
+            display: inline;
+            margin: 0;
+            font-size: inherit;
         }
         #content blockquote {
             margin: 0 0 16px 0;
@@ -125,24 +136,20 @@
             margin: 28px 0 16px 0;
         }
 
-        a {
-            color: #0044aa;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #0066dd;
-        }
-
         @media (max-width: 768px) {
-            body {
-                font-size: 18px;
+            :root {
+                --h2-font-size: 28px;
             }
-            .site-header h1 {
+            body {
+                font-size: 20px;
+            }
+            h1 {
                 font-size: 22px;
             }
-            .top-nav a {
+            h2 {
+                font-size: 28px;
+            }
+            a {
                 font-size: 16px;
             }
             #content h1 {
@@ -158,9 +165,10 @@
     </style>
 </head>
 <body>
-    <div class="site-header">
+    <main>
         <h1><a href="../../">louis boucherie</a></h1>
         <h2></h2>
+
         <nav class="top-nav">
             <a href="../../">about</a>
             <a href="../../blog/">blog</a>
@@ -169,9 +177,7 @@
             <a href="https://github.com/LCB0B" target="_blank">code</a>
             <a href="../../contact/">contact</a>
         </nav>
-    </div>
 
-    <main>
         <article id="content">{{CONTENT}}</article>
     </main>
 
