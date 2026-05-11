@@ -2,29 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://louisboucherie.com/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/blog/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/blog/decoupling/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/viz/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/viz/representation/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/viz/fashion/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/viz/dk/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/contact/</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
     <url>
         <loc>https://louisboucherie.com/project/decoupling.html</loc>
+        <lastmod>2026-05-11</lastmod>
+    </url>
+    <url>
+        <loc>https://louisboucherie.com/project/adaptive_cut.html</loc>
+        <lastmod>2026-05-11</lastmod>
     </url>
 </urlset>
