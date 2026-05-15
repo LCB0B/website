@@ -138,9 +138,12 @@
         }
         .paper-banner .emoji {
             display: inline-block;
+            transform: rotate(0deg);
+            transition: transform 0.6s ease;
         }
         .paper-banner:hover .emoji {
             animation: tada 1s ease-out;
+            transform: rotate(360deg);
         }
 
         @media (max-width: 768px) {
