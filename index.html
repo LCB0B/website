@@ -110,6 +110,32 @@
             border-top: 1px dashed #aaa;
         }
 
+        .paper-banner {
+            display: block;
+            background: #fde68a;
+            color: #1a1a1a;
+            border-left: 4px solid #f59e0b;
+            padding: 10px 14px;
+            margin: 0 0 18px 0;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .paper-banner:hover {
+            background: #fcd34d;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .paper-banner .emoji {
+            display: inline-block;
+            transition: transform 0.5s ease;
+        }
+        .paper-banner:hover .emoji {
+            transform: rotate(360deg);
+        }
+
         @media (max-width: 768px) {
             :root {
                 --h2-font-size: 28px;
@@ -233,10 +259,16 @@
             <a href="./">about</a>
             <a href="blog/">blog</a>
             <a href="viz/">viz</a>
+            <a href="talks/">talks</a>
             <a href="https://scholar.google.com/citations?user=UtfTBZ4AAAAJ&hl=en" target="_blank">publications</a>
             <a href="https://github.com/LCB0B" target="_blank">code</a>
             <a href="contact/">contact</a>
         </nav>
+
+        <!-- temporary: new paper announcement — remove when no longer relevant -->
+        <a href="#TODO-pnas-url" class="paper-banner" target="_blank" rel="noopener">
+            <span class="emoji">🎉</span> New in PNAS: PLACEHOLDER (May 2026)
+        </a>
 
         <p>
             <b>about</b><br>

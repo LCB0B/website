@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Boucherie / talks</title>
+    <meta name="description" content="Talks given by Louis Boucherie at conferences, universities, and workshops.">
+    <meta name="author" content="Louis Boucherie">
+    <link rel="canonical" href="https://louisboucherie.com/talks/">
+    <meta property="og:title" content="Louis Boucherie / talks">
+    <meta property="og:description" content="Talks given by Louis Boucherie at conferences, universities, and workshops.">
+    <meta property="og:url" content="https://louisboucherie.com/talks/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://louisboucherie.com/image/figure_1-8.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://louisboucherie.com/image/figure_1-8.png">
+    <link rel="icon" href="../image/favicon.png" type="image/png">
+    <style>
+        :root {
+            --h2-font-size: 16px;
+        }
+
+        html, body {
+            min-height: 100vh;
+        }
+        body {
+            font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+            background-color: #fafafa;
+            color: #1a2828;
+            text-align: left;
+            padding: 36px 20px 20px 36px;
+            margin: 0;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+
+        h1 {
+            font-size: 16px;
+            position: relative;
+            color: #3d3833;
+        }
+        h1 a {
+            color: inherit;
+            text-decoration: none;
+            display: inline;
+            font-size: inherit;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: var(--h2-font-size);
+            color: #1a2828;
+            margin-top: calc(var(--h2-font-size) * -0.65);
+            margin-bottom: calc(var(--h2-font-size) * 1.25);
+            font-weight: normal;
+        }
+
+        a {
+            color: #0044aa;
+            text-decoration: none;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0066dd;
+        }
+
+        .top-nav {
+            margin-top: -8px;
+            margin-bottom: 18px;
+        }
+        .top-nav a {
+            display: inline-block;
+            margin: 0 18px 0 0;
+        }
+
+        p b {
+            color: #3d3833;
+        }
+
+        .section-label {
+            color: #888;
+            margin-top: 22px;
+            margin-bottom: 10px;
+        }
+        .section-label.upcoming {
+            color: #b45309;
+        }
+
+        .talks {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+        .talks li {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin: 0 0 14px 0;
+        }
+        .talk-date {
+            flex: 0 0 84px;
+            color: #888;
+            font-size: 13px;
+            padding-top: 2px;
+        }
+        .talks.upcoming .talk-date {
+            color: #b45309;
+            font-weight: bold;
+        }
+        .talk-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .talk-title {
+            display: block;
+            color: #3d3833;
+            font-weight: bold;
+            margin-bottom: 2px;
+            font-size: 14px;
+        }
+        .talk-venue {
+            display: block;
+            color: #3d3833;
+            font-size: 14px;
+        }
+        .talk-info a {
+            display: inline;
+            margin: 0;
+            font-size: inherit;
+        }
+
+        @media (max-width: 480px) {
+            .talks li {
+                flex-direction: column;
+                gap: 2px;
+            }
+            .talk-date {
+                flex: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --h2-font-size: 28px;
+            }
+            body {
+                font-size: 20px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            h2 {
+                font-size: 28px;
+            }
+            a {
+                font-size: 16px;
+            }
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">skip to content</a>
+    <main id="main">
+        <h1><a href="../">louis boucherie</a></h1>
+        <h2 aria-hidden="true"></h2>
+
+        <nav class="top-nav">
+            <a href="../">about</a>
+            <a href="../blog/">blog</a>
+            <a href="../viz/">viz</a>
+            <a href="../talks/">talks</a>
+            <a href="https://scholar.google.com/citations?user=UtfTBZ4AAAAJ&hl=en" target="_blank">publications</a>
+            <a href="https://github.com/LCB0B" target="_blank">code</a>
+            <a href="../contact/">contact</a>
+        </nav>
+
+        <p><b>talks</b></p>
+
+        <p class="section-label upcoming">upcoming</p>
+        <ul class="talks upcoming">
+            <li>
+                <span class="talk-date">Jun 2026</span>
+                <span class="talk-info">
+                    <span class="talk-title">The paradox of diversity in fashion</span>
+                    <span class="talk-venue">DataBeers Copenhagen, Denmark</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Aug 2026</span>
+                <span class="talk-info">
+                    <span class="talk-title">Data Science for Fashion</span>
+                    <span class="talk-venue">DDSA Pre-grad Retreat, Denmark</span>
+                </span>
+            </li>
+        </ul>
+
+        <p class="section-label">past</p>
+        <ul class="talks">
+            <li>
+                <span class="talk-date">Mar 2026</span>
+                <span class="talk-info">
+                    <span class="talk-title">Longevity and life sequences</span>
+                    <span class="talk-venue">Matthew Salganik Research Group, Princeton University (online)</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Dec 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Houses as water — Decoupling geographical constraints from human mobility</span>
+                    <span class="talk-venue">NetPlace Seminar (online) · <a href="https://www.youtube.com/watch?v=nNKm7cTftE4" target="_blank" rel="noopener">video ↗</a></span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Aug 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decoupling geographical constraints from human mobility</span>
+                    <span class="talk-venue">Deep Dive Workshop — Network Science and Social Data Science (d3a Conference), Nyborg, Denmark · <a href="https://d3aconference.dk/network-science-and-social-data-science/" target="_blank" rel="noopener">event ↗</a></span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Jul 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Cultural Evolution of Human Beauty Standards</span>
+                    <span class="talk-venue">11th International Conference on Computational Social Science (IC2S2), Norrköping, Sweden</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Jul 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decoupling geographical constraints from human mobility</span>
+                    <span class="talk-venue">11th International Conference on Computational Social Science (IC2S2), Norrköping, Sweden</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">May 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decoding decades of fashion trends with AI and computer vision</span>
+                    <span class="talk-venue">Boozt Platform Conference, Malmö, Sweden · <a href="https://medium.com/boozt-tech/boozt-platform-conference-2025-recap-innovation-ai-and-teamwork-in-turbulent-times-bdd4d199bbbf" target="_blank" rel="noopener">recap ↗</a></span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">May 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decoupling geographical constraints from human mobility</span>
+                    <span class="talk-venue">Network Science Society Conference, Maastricht, Netherlands</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">May 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">Adaptive cut reveals multiscale complexity in networks</span>
+                    <span class="talk-venue">Network Science Society Conference, Maastricht, Netherlands</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Apr 2025</span>
+                <span class="talk-info">
+                    <span class="talk-title">The Colors of Fashion</span>
+                    <span class="talk-venue">Data Discussion, University of Copenhagen, Copenhagen, Denmark</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Oct 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decoupling geographical constraints from human mobility</span>
+                    <span class="talk-venue">NetMob Conference, Washington, DC, United States</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Sep 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decomposing geographical and universal aspects of human mobility</span>
+                    <span class="talk-venue">Conference on Complex Systems, Exeter, UK</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Sep 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Adaptive cut reveals multiscale complexity in networks</span>
+                    <span class="talk-venue">Conference on Complex Systems, Exeter, UK</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Sep 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Statistical Physics of the built environment</span>
+                    <span class="talk-venue">Conference on Complex Systems (satellite), Exeter, UK</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">May 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Houses are water — Decomposing geographical and universal aspects of human mobility</span>
+                    <span class="talk-venue">Aalto University, Helsinki, Finland · <a href="https://www.youtube.com/watch?v=FVr0I1jC-VQ" target="_blank" rel="noopener">video ↗</a></span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">May 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decomposing geographical and universal aspects of human mobility</span>
+                    <span class="talk-venue">Networks, Data and Society (NERDS), IT University of Copenhagen, Denmark</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Mar 2024</span>
+                <span class="talk-info">
+                    <span class="talk-title">Decoupling geographical constraints from human mobility</span>
+                    <span class="talk-venue">P1 Workshop “Diverse topics in AI”, Copenhagen, Denmark</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Jul 2023</span>
+                <span class="talk-info">
+                    <span class="talk-title">Segregation model using Danish Registry Data (poster)</span>
+                    <span class="talk-venue">9th International Conference on Computational Social Science (IC2S2), Copenhagen, Denmark · <a href="https://ic2s2-2023.org/awards" target="_blank" rel="noopener">best poster award ↗</a></span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Jun 2023</span>
+                <span class="talk-info">
+                    <span class="talk-title">Segregation model using Danish Registry Data</span>
+                    <span class="talk-venue">Network Science Society Conference, Vienna, Austria</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Jun 2023</span>
+                <span class="talk-info">
+                    <span class="talk-title">Adaptive cut reveals multiscale complexity in networks</span>
+                    <span class="talk-venue">Network Science Society Conference, Vienna, Austria</span>
+                </span>
+            </li>
+            <li>
+                <span class="talk-date">Nov 2022</span>
+                <span class="talk-info">
+                    <span class="talk-title">Segregation model using Danish Registry Data (poster)</span>
+                    <span class="talk-venue">First annual DDSA Conference, Billund, Denmark</span>
+                </span>
+            </li>
+        </ul>
+    </main>
+
+<footer style="margin-top: 30px;">
+    <p style="text-align: left; font-size: 12px; color: #555;">
+        &copy; 2026 Louis Boucherie. All rights reserved.
+    </p>
+</footer>
+</body>
+</html>
