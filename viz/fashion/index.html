@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Boucherie / viz / fashion</title>
+    <title>Louis Boucherie / visuals / fashion</title>
     <meta name="description" content="Fashion visualization by Louis Boucherie.">
     <meta name="author" content="Louis Boucherie">
     <link rel="canonical" href="https://louisboucherie.com/viz/fashion/">
-    <meta property="og:title" content="Louis Boucherie / viz / fashion">
+    <meta property="og:title" content="Louis Boucherie / visuals / fashion">
     <meta property="og:description" content="Fashion visualization by Louis Boucherie.">
     <meta property="og:url" content="https://louisboucherie.com/viz/fashion/">
     <meta property="og:type" content="website">
@@ -25,8 +25,8 @@
         }
         body {
             font-family: 'Cascade Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
-            background-color: #fafafa;
-            color: #1a2828;
+            background-color: #000;
+            color: #e6e6e6;
             text-align: left;
             padding: 36px 20px 20px 36px;
             margin: 0;
@@ -42,7 +42,7 @@
         h1 {
             font-size: 16px;
             position: relative;
-            color: #3d3833;
+            color: #e6e6e6;
         }
         h1 a {
             color: inherit;
@@ -54,14 +54,14 @@
 
         h2 {
             font-size: var(--h2-font-size);
-            color: #1a2828;
+            color: #e6e6e6;
             margin-top: calc(var(--h2-font-size) * -0.65);
             margin-bottom: calc(var(--h2-font-size) * 1.25);
             font-weight: normal;
         }
 
         a {
-            color: #0044aa;
+            color: #8ab4ff;
             text-decoration: none;
             font-size: 16px;
             display: block;
@@ -70,7 +70,7 @@
         }
         a:hover {
             text-decoration: underline;
-            color: #0066dd;
+            color: #b3ccff;
         }
 
         .top-nav {
@@ -92,10 +92,34 @@
             width: 100%;
             max-width: 540px;
             height: auto;
+            cursor: zoom-in;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 1000;
+            cursor: zoom-out;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            cursor: zoom-out;
         }
 
         p b {
-            color: #3d3833;
+            color: #fff;
         }
         p a.inline-link {
             display: inline;
@@ -146,7 +170,7 @@
         <nav class="top-nav">
             <a href="../../">about</a>
             <a href="../../blog/">blog</a>
-            <a href="../../viz/">viz</a>
+            <a href="../../viz/">visuals</a>
             <a href="../../talks/">talks</a>
             <a href="https://scholar.google.com/citations?user=UtfTBZ4AAAAJ&hl=en" target="_blank">publications</a>
             <a href="https://github.com/LCB0B" target="_blank">code</a>
@@ -156,12 +180,40 @@
         <p><b>fashion</b> &mdash; <a href="https://github.com/LCB0B/SF-fashion" target="_blank" class="inline-link">source</a></p>
 
         <div class="image-container">
-            <img src="../../image/d.gif" alt="fashion visualization">
+            <img src="../../image/d.gif" alt="fashion visualization" class="zoomable" title="click to fullscreen">
         </div>
     </main>
 
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <script>
+        (function () {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            document.querySelectorAll('img.zoomable').forEach(function (img) {
+                img.addEventListener('click', function () {
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('open');
+                });
+            });
+            lightbox.addEventListener('click', function () {
+                lightbox.classList.remove('open');
+                lightboxImg.src = '';
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    lightbox.classList.remove('open');
+                    lightboxImg.src = '';
+                }
+            });
+        })();
+    </script>
+
 <footer style="margin-top: 30px;">
-    <p style="text-align: left; font-size: 12px; color: #555;">
+    <p style="text-align: left; font-size: 12px; color: #888;">
         &copy; 2026 Louis Boucherie. All rights reserved.
     </p>
 </footer>

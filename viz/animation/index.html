@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louis Boucherie / viz / geography</title>
+    <title>Louis Boucherie / visuals / geography</title>
     <meta name="description" content="Geography visualization by Louis Boucherie.">
     <meta name="author" content="Louis Boucherie">
     <link rel="canonical" href="https://louisboucherie.com/viz/animation/">
-    <meta property="og:title" content="Louis Boucherie / viz / geography">
+    <meta property="og:title" content="Louis Boucherie / visuals / geography">
     <meta property="og:description" content="Geography visualization by Louis Boucherie.">
     <meta property="og:url" content="https://louisboucherie.com/viz/animation/">
     <meta property="og:type" content="website">
@@ -84,6 +84,21 @@
             max-width: 540px;
             height: auto;
             background: #000;
+            cursor: zoom-in;
+        }
+        video:fullscreen {
+            cursor: zoom-out;
+            max-width: none;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        video:-webkit-full-screen {
+            cursor: zoom-out;
+            max-width: none;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         p b {
@@ -134,7 +149,7 @@
         <nav class="top-nav">
             <a href="../../">about</a>
             <a href="../../blog/">blog</a>
-            <a href="../../viz/">viz</a>
+            <a href="../../viz/">visuals</a>
             <a href="../../talks/">talks</a>
             <a href="https://scholar.google.com/citations?user=UtfTBZ4AAAAJ&hl=en" target="_blank">publications</a>
             <a href="https://github.com/LCB0B" target="_blank">code</a>
@@ -144,8 +159,24 @@
         <p class="page-text"><b>geography</b> &mdash; an illustration of <a href="https://www.nature.com/articles/s41562-025-02282-7" target="_blank" rel="noopener" class="inline-link">this project</a></p>
 
         <div class="video-container">
-            <video src="animation.mp4" poster="thumb.jpg" autoplay loop muted playsinline></video>
+            <video id="anim-video" src="animation.mp4" poster="thumb.jpg" autoplay loop muted playsinline title="click to fullscreen"></video>
         </div>
+
+        <script>
+            (function () {
+                var v = document.getElementById('anim-video');
+                if (!v) return;
+                v.addEventListener('click', function () {
+                    var inFullscreen = document.fullscreenElement || document.webkitFullscreenElement;
+                    if (inFullscreen) {
+                        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+                    } else {
+                        var req = v.requestFullscreen || v.webkitRequestFullscreen || v.webkitEnterFullscreen;
+                        if (req) req.call(v);
+                    }
+                });
+            })();
+        </script>
 
         <p class="page-text">here is the <a href="https://www.google.com/maps/@55.6985946,12.5049197,5534m/data=!3m1!1e3?entry=ttu&amp;g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="inline-link">real location</a> &mdash; find the building that matches :)</p>
     </main>
