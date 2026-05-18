@@ -241,18 +241,20 @@ html, body {
   border: none;
 }
 
-/* Year ruler — 90% page width with annual ticks and 5-year labels */
+/* Year ruler — matches the plot grid width (does not grow with viewport) */
 .slider-row {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  padding: 0;
+  padding: 0 10px;
   border-top: 1px solid var(--line);
   height: 42px;
+  width: min(100%, calc((100vh - 88px) * 16 / 9));
+  margin: 0 auto;
 }
 .timeline {
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 100%;
 }
 .timeline-baseline {
