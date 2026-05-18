@@ -43,6 +43,7 @@ html, body {
   line-height: 1;
 }
 .topbar h1 em {
+  font-family: inherit;
   font-style: normal;
 }
 .topbar .subtle { font-weight: 400; color: var(--muted); }
