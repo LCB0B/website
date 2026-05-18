@@ -90,7 +90,7 @@ html, body {
 
 .grid {
   display: grid;
-  grid-template-columns: 28% minmax(0, 1fr);
+  grid-template-columns: 34% minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) 26%;
   grid-template-areas:
     "body mosaic"
