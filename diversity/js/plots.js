@@ -166,9 +166,9 @@ function buildTailsPanel(selector, tailsForEvent, measurement, label, opts) {
   if (variable) {
     const tooltip = document.getElementById("tooltip");
     const regions = [
-      { value: "biggest", y0: 0, y1: inner.h / 3, hint: "above (biggest RFM)" },
-      { value: "middle",  y0: inner.h / 3, y1: (2 * inner.h) / 3, hint: "middle RFM" },
-      { value: "smallest", y0: (2 * inner.h) / 3, y1: inner.h, hint: "below (smallest RFM)" },
+      { value: "high", y0: 0, y1: inner.h / 3, hint: "high RFM" },
+      { value: "mid",  y0: inner.h / 3, y1: (2 * inner.h) / 3, hint: "mid RFM" },
+      { value: "low",  y0: (2 * inner.h) / 3, y1: inner.h, hint: "low RFM" },
     ];
     regions.forEach((r) => {
       g.append("rect")

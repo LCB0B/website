@@ -83,9 +83,9 @@ function buildMosaic(selector, metaSelector, mosaicData) {
         if (n >= 3) {
           const lo = rfms[Math.floor(n / 3)];
           const hi = rfms[Math.floor((2 * n) / 3)];
-          if (filter.value === "smallest") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm < lo);
-          else if (filter.value === "biggest") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm >= hi);
-          else if (filter.value === "middle") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm >= lo && t.rfm < hi);
+          if (filter.value === "low") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm < lo);
+          else if (filter.value === "high") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm >= hi);
+          else if (filter.value === "mid") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm >= lo && t.rfm < hi);
         }
       } else {
         const key = filter.variable === "hair" ? "hair_b"
