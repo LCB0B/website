@@ -116,7 +116,7 @@ function buildMeasurementPanel(selector, measurementData, palette, opts) {
 }
 
 /* ---------- Tails: P10/P25/P50/P75/P90 envelope for one measurement (paper body_tails) ---------- */
-function buildTailsPanel(selector, tailsForEvent, measurement, label) {
+function buildTailsPanel(selector, tailsForEvent, measurement, label, opts) {
   // tailsForEvent[measurement] = [{year, p10, p25, p50, p75, p90, p95, p99}]
   const node = document.querySelector(selector);
   const w = node.clientWidth || 220;
@@ -160,6 +160,44 @@ function buildTailsPanel(selector, tailsForEvent, measurement, label) {
   panelLabel(svg, label, w);
   const yearLine = g.append("line").attr("y1", 0).attr("y2", inner.h)
     .attr("stroke", INK).attr("stroke-width", 1).attr("stroke-dasharray", "2 2");
+
+  // Invisible click regions: top third = biggest, middle = middle, bottom = smallest.
+  const variable = opts && opts.variable;
+  if (variable) {
+    const tooltip = document.getElementById("tooltip");
+    const regions = [
+      { value: "biggest", y0: 0, y1: inner.h / 3, hint: "above (biggest RFM)" },
+      { value: "middle",  y0: inner.h / 3, y1: (2 * inner.h) / 3, hint: "middle RFM" },
+      { value: "smallest", y0: (2 * inner.h) / 3, y1: inner.h, hint: "below (smallest RFM)" },
+    ];
+    regions.forEach((r) => {
+      g.append("rect")
+        .attr("x", 0).attr("y", r.y0)
+        .attr("width", inner.w).attr("height", r.y1 - r.y0)
+        .attr("fill", "transparent")
+        .style("cursor", "pointer")
+        .on("mouseenter", function (event) {
+          tooltip.textContent = `Click ${r.hint} to filter mosaic`;
+          tooltip.classList.add("show");
+          tooltip.style.left = `${event.clientX}px`;
+          tooltip.style.top = `${event.clientY - 8}px`;
+        })
+        .on("mousemove", function (event) {
+          tooltip.style.left = `${event.clientX}px`;
+          tooltip.style.top = `${event.clientY - 8}px`;
+        })
+        .on("mouseleave", function () {
+          tooltip.classList.remove("show");
+        })
+        .on("click", function (event) {
+          event.stopPropagation();
+          window.dispatchEvent(new CustomEvent("dashboard:filter", {
+            detail: { variable, value: r.value },
+          }));
+        });
+    });
+  }
+
   return { update(year) { yearLine.attr("x1", x(year)).attr("x2", x(year)); } };
 }
 
@@ -271,17 +309,62 @@ function buildNonWhiteSharePanel(selector, mosaicData) {
     .call(styleAxis);
   g.append("g").call(d3.axisLeft(y).ticks(3).tickFormat(d3.format(".0%")).tickSizeInner(3).tickSizeOuter(0)).call(styleAxis);
 
+  // Invisible click regions: above the line → white, below the line → non-white.
+  // (The y-axis tracks the share of non-white, so the area below the curve maps to non-white.)
+  const tooltip = document.getElementById("tooltip");
+  const aboveArea = d3.area()
+    .x((d) => x(d.year))
+    .y0(() => 0)
+    .y1((d) => y(d.share));
+  const belowArea = d3.area()
+    .x((d) => x(d.year))
+    .y0((d) => y(d.share))
+    .y1(() => inner.h);
+  const regions = [
+    { value: "W",  path: aboveArea, hint: "above (white models)" },
+    { value: "NW", path: belowArea, hint: "below (non-white models)" },
+  ];
+  regions.forEach((r) => {
+    g.append("path")
+      .datum(series)
+      .attr("d", r.path)
+      .attr("fill", "transparent")
+      .style("cursor", "pointer")
+      .on("mouseenter", function (event) {
+        tooltip.textContent = `Click ${r.hint} to filter mosaic`;
+        tooltip.classList.add("show");
+        tooltip.style.left = `${event.clientX}px`;
+        tooltip.style.top = `${event.clientY - 8}px`;
+      })
+      .on("mousemove", function (event) {
+        tooltip.style.left = `${event.clientX}px`;
+        tooltip.style.top = `${event.clientY - 8}px`;
+      })
+      .on("mouseleave", function () {
+        tooltip.classList.remove("show");
+      })
+      .on("click", function (event) {
+        event.stopPropagation();
+        window.dispatchEvent(new CustomEvent("dashboard:filter", {
+          detail: { variable: "ethn", value: r.value },
+        }));
+      });
+  });
+
   const color = "#61C2FF";
   const line = d3.line().x((d) => x(d.year)).y((d) => y(d.share));
   g.append("path").datum(series)
     .attr("fill", "none").attr("stroke", color).attr("stroke-width", 1.4)
+    .attr("pointer-events", "none")
     .attr("d", line);
   g.selectAll(null).data(series).enter().append("circle")
     .attr("cx", (d) => x(d.year)).attr("cy", (d) => y(d.share))
-    .attr("r", 1.4).attr("fill", color);
+    .attr("r", 1.4).attr("fill", color)
+    .attr("pointer-events", "none");
 
   panelLabel(svg, "Share of non-white models", w);
   const yearLine = g.append("line").attr("y1", 0).attr("y2", inner.h)
-    .attr("stroke", INK).attr("stroke-width", 1).attr("stroke-dasharray", "2 2");
+    .attr("stroke", INK).attr("stroke-width", 1).attr("stroke-dasharray", "2 2")
+    .attr("pointer-events", "none");
   return { update(year) { yearLine.attr("x1", x(year)).attr("x2", x(year)); } };
 }

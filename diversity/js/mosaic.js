@@ -75,12 +75,26 @@ function buildMosaic(selector, metaSelector, mosaicData) {
     if (!block) return { tiles: [], block: null };
     let tiles = block.tiles.slice();
     if (filter && filter.variable && filter.value) {
-      const key = filter.variable === "hair" ? "hair_b"
-                : filter.variable === "eyes" ? "eye_b"
-                : filter.variable === "region" ? "region"
-                : null;
-      if (key) {
-        tiles = tiles.filter((t) => (t[key] || "other") === filter.value);
+      if (filter.variable === "ethn") {
+        tiles = tiles.filter((t) => (t.ethn === "W") === (filter.value === "W"));
+      } else if (filter.variable === "rfm") {
+        const rfms = tiles.map((t) => t.rfm).filter(Number.isFinite).slice().sort((a, b) => a - b);
+        const n = rfms.length;
+        if (n >= 3) {
+          const lo = rfms[Math.floor(n / 3)];
+          const hi = rfms[Math.floor((2 * n) / 3)];
+          if (filter.value === "smallest") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm < lo);
+          else if (filter.value === "biggest") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm >= hi);
+          else if (filter.value === "middle") tiles = tiles.filter((t) => Number.isFinite(t.rfm) && t.rfm >= lo && t.rfm < hi);
+        }
+      } else {
+        const key = filter.variable === "hair" ? "hair_b"
+                  : filter.variable === "eyes" ? "eye_b"
+                  : filter.variable === "region" ? "region"
+                  : null;
+        if (key) {
+          tiles = tiles.filter((t) => (t[key] || "other") === filter.value);
+        }
       }
     }
     return { tiles, block };

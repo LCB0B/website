@@ -6,6 +6,8 @@ const FILTER_LABELS = {
   hair: (v) => `${v} hair`,
   eyes: (v) => `${v} eyes`,
   region: (v) => v,
+  rfm: (v) => `${v} RFM`,
+  ethn: (v) => (v === "W" ? "white models" : "non-white models"),
 };
 
 async function loadJson(name) {
@@ -81,7 +83,7 @@ function buildPanels(data) {
 
   if (data.tails?.fashion_shows?.rfm) {
     updaters.push(buildTailsPanel(
-      "#plot-tails", data.tails.fashion_shows, "rfm", "RFM tails (P10–P90)"
+      "#plot-tails", data.tails.fashion_shows, "rfm", "RFM tails (P10–P90)", { variable: "rfm" }
     ));
   } else {
     document.querySelector("#plot-tails").innerHTML = '<div style="padding:10px;color:#999">No tail data</div>';
