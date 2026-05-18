@@ -35,9 +35,9 @@ html, body {
   gap: 14px;
 }
 .topbar h1 {
-  font-family: "Pinyon Script", "Snell Roundhand", "Apple Chancery", "Edwardian Script ITC", "Lucida Calligraphy", "Brush Script MT", cursive;
-  font-size: 34px;
-  font-weight: 400;
+  font-family: "Tangerine", "Snell Roundhand", "Apple Chancery", "Edwardian Script ITC", "Lucida Calligraphy", "Brush Script MT", cursive;
+  font-size: 36px;
+  font-weight: 700;
   margin: 0;
   letter-spacing: 0;
   line-height: 1;
