@@ -420,6 +420,19 @@ html, body {
   50%       { box-shadow: 0 2px 14px rgba(0,0,0,0.45), 0 0 0 4px rgba(26,26,26,0.08); }
 }
 
+.version-badge {
+  position: fixed;
+  bottom: 4px;
+  right: 6px;
+  font-size: 9px;
+  color: var(--muted);
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+  z-index: 1000;
+}
+
 .tooltip {
   position: fixed;
   pointer-events: none;
