@@ -1,9 +1,9 @@
 /* Paper-styled D3 plot builders. Each builder returns { update(year) }. */
 
-const MARGIN = { top: 16, right: 4, bottom: 18, left: 32 };
+const MARGIN = { top: 20, right: 4, bottom: 18, left: 32 };
 const STD_PANEL_BG = "#f5f5f5";
 const INK = "#1a1a1a";
-const LABEL_FS = 12;
+const LABEL_FS = 14;
 const AXIS_FS = 11;
 
 function makeSvg(selector, width, height) {
