@@ -153,8 +153,10 @@ function wireSliderAndFilter({ updaters, mosaicUpdater }) {
     if (markerYear) markerYear.textContent = String(currentYear);
   }
 
+  const mosaicYear = document.getElementById("mosaic-year");
   function applyAll() {
     yearVal.textContent = currentYear;
+    if (mosaicYear) mosaicYear.textContent = currentYear;
     updaters.forEach((u) => u.update(currentYear));
     mosaicUpdater.update(currentYear, activeFilter);
     syncMarker();

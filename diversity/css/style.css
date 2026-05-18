@@ -131,6 +131,12 @@ html, body {
   color: var(--muted);
   font-size: 13px;
 }
+.panel h2 .mosaic-year {
+  margin-left: 6px;
+  color: var(--muted);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
 
 /* Body measurements: row label + 3 plots (mean | σ | skew) × 5 rows */
 .col-body { min-height: 0; }
