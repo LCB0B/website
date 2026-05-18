@@ -5,3 +5,4 @@
 .DS_Store
 *.tex
 node_modules/
+__pycache__/

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diversity in Fashion — 2000–2024</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/lib/d3.v7.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Diversity in Fashion <span class="subtle">— 2000–2024</span></h1>
+    <div class="topbar-right">
+      <button id="filter-pill" class="filter-pill hidden" type="button" title="Clear filter (Esc)">
+        <span id="filter-pill-text">Filter</span>
+        <span class="filter-pill-x">×</span>
+      </button>
+      <a class="paper-link" href="#" target="_blank" rel="noopener">Article: Cultural Evolution of Beauty Standards →</a>
+    </div>
+    <span id="year-value" hidden>2014</span>
+  </header>
+
+  <main class="grid">
+    <!-- Left column: body measurements 5 rows × 2 cols (mean | σ) -->
+    <section class="panel col-body">
+      <h2>Body measurements</h2>
+      <div class="legend-row" id="event-legend"></div>
+      <div class="meas-col-headers" aria-hidden="true">
+        <span class="meas-col-spacer"></span>
+        <span>mean</span>
+        <span>std deviation</span>
+        <span>skewness</span>
+      </div>
+      <div class="meas-grid">
+        <div class="meas-row-label">Height</div>
+        <div class="plot meas-cell" id="plot-mean-height_cm"></div>
+        <div class="plot meas-cell" id="plot-std-height_cm"></div>
+        <div class="plot meas-cell" id="plot-skew-height_cm"></div>
+        <div class="meas-row-label">Bust</div>
+        <div class="plot meas-cell" id="plot-mean-bust-eu_clean"></div>
+        <div class="plot meas-cell" id="plot-std-bust-eu_clean"></div>
+        <div class="plot meas-cell" id="plot-skew-bust-eu_clean"></div>
+        <div class="meas-row-label">Waist</div>
+        <div class="plot meas-cell" id="plot-mean-waist-eu_clean"></div>
+        <div class="plot meas-cell" id="plot-std-waist-eu_clean"></div>
+        <div class="plot meas-cell" id="plot-skew-waist-eu_clean"></div>
+        <div class="meas-row-label">Hips</div>
+        <div class="plot meas-cell" id="plot-mean-hips-eu_clean"></div>
+        <div class="plot meas-cell" id="plot-std-hips-eu_clean"></div>
+        <div class="plot meas-cell" id="plot-skew-hips-eu_clean"></div>
+        <div class="meas-row-label">RFM</div>
+        <div class="plot meas-cell" id="plot-mean-rfm"></div>
+        <div class="plot meas-cell" id="plot-std-rfm"></div>
+        <div class="plot meas-cell" id="plot-skew-rfm"></div>
+      </div>
+    </section>
+
+    <!-- Center: mosaic 10×10 -->
+    <section class="panel col-mosaic">
+      <h2>Representative models</h2>
+      <div class="mosaic-wrap"><div class="mosaic" id="mosaic"></div></div>
+      <div class="mosaic-meta" id="mosaic-meta"></div>
+    </section>
+
+    <!-- Bottom strip: hair / eyes / region / tails / intersectionality -->
+    <section class="col-cats">
+      <div class="panel cat-cell" id="plot-hair"></div>
+      <div class="panel cat-cell" id="plot-eyes"></div>
+      <div class="panel cat-cell" id="plot-region"></div>
+      <div class="panel cat-cell" id="plot-tails"></div>
+      <div class="panel cat-cell" id="plot-inter"></div>
+    </section>
+  </main>
+
+  <footer class="slider-row">
+    <div class="timeline">
+      <div class="timeline-baseline" aria-hidden="true"></div>
+      <div class="timeline-ticks" aria-hidden="true"></div>
+      <div class="timeline-labels" aria-hidden="true"></div>
+      <input type="range" id="year-slider" min="2000" max="2024" step="1" value="2014" />
+      <div class="timeline-marker" aria-hidden="true">
+        <span class="timeline-marker-year">2014</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="tooltip" class="tooltip"></div>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightbox-img" alt="" />
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+  <script src="js/plots.js"></script>
+  <script src="js/mosaic.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

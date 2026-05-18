@@ -1,0 +1,455 @@
+:root {
+  --bg: #fafaf8;
+  --panel: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #888888;
+  --line: #e8e8e8;
+  --std-bg: #f6f6f4;
+}
+
+* { box-sizing: border-box; font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px 8px;
+  border-bottom: 1px solid var(--line);
+  background: #e4e1d8;
+  height: 46px;
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.topbar h1 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+.topbar .subtle { font-weight: 400; color: var(--muted); }
+.paper-link {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
+  letter-spacing: 0.02em;
+}
+.paper-link:hover { color: var(--muted); border-bottom-color: var(--muted); }
+
+.filter-pill {
+  font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 3px 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
+}
+.filter-pill:hover { background: #444; }
+.filter-pill .filter-pill-x { font-size: 15px; line-height: 1; opacity: 0.7; }
+.filter-pill.hidden { display: none; }
+
+.mosaic img.hidden { opacity: 0.05; cursor: default; }
+.year-display {
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+}
+.year-display #year-value {
+  color: var(--ink);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 28% minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) 26%;
+  grid-template-areas:
+    "body mosaic"
+    "cats cats";
+  gap: 6px;
+  padding: 6px 10px;
+  aspect-ratio: 16 / 9;
+  width: min(100%, calc((100vh - 88px) * 16 / 9));
+  max-height: calc(100vh - 88px);
+  margin: 0 auto;
+}
+.col-body    { grid-area: body; }
+.col-mosaic  { grid-area: mosaic; }
+.col-cats    {
+  grid-area: cats;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  min-height: 0;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 4px 6px 4px;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.panel h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+.panel h2 .subtle {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Body measurements: row label + 3 plots (mean | σ | skew) × 5 rows */
+.col-body { min-height: 0; }
+.meas-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 44px 1fr 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0;
+  min-height: 0;
+}
+.meas-grid > * { border-bottom: 1px solid var(--line); }
+.meas-grid > *:nth-last-child(-n+4) { border-bottom: none; }
+.meas-cell { width: 100%; height: 100%; min-height: 0; min-width: 0; }
+.meas-row-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.meas-col-headers {
+  display: grid;
+  grid-template-columns: 44px 1fr 1fr 1fr;
+  font-size: 12px;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: -6px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+.meas-col-headers > span {
+  text-align: center;
+  /* shift right so headers align with the plot area inside each cell
+     (panels have MARGIN.left=32, MARGIN.right=4 in plots.js) */
+  padding-left: 28px;
+}
+.meas-col-headers .meas-col-spacer { padding: 0; }
+
+.legend-row {
+  margin: 0 0 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 10.5px;
+  color: var(--ink);
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 2px 0;
+}
+.legend-row span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.legend-row i {
+  display: inline-block;
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+/* Center mosaic 10×10 — square aspect, fits available area, centered horizontally */
+.col-mosaic { display: flex; flex-direction: column; min-height: 0; align-items: stretch; }
+.mosaic-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 1px;
+  background: #fff;
+  aspect-ratio: 36 / 21;  /* 18 cols × 2 : 7 rows × 3 = 12:7 */
+  max-height: 100%;
+  max-width: 100%;
+}
+.mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  background: #f1f1f1;
+  transition: opacity 200ms ease;
+}
+.mosaic img.swap { opacity: 0; }
+.mosaic-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 3px 1px 0;
+  font-variant-numeric: tabular-nums;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.mosaic-meta strong { color: var(--ink); font-weight: 600; }
+
+.cat-cell {
+  width: 100%; height: 100%; min-height: 0; min-width: 0;
+  background: #fff; padding: 4px 6px;
+  border: none;
+}
+
+/* Year ruler — 90% page width with annual ticks and 5-year labels */
+.slider-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  height: 42px;
+}
+.timeline {
+  position: relative;
+  width: 90%;
+  height: 100%;
+}
+.timeline-baseline {
+  position: absolute;
+  top: 9px;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--ink);
+  pointer-events: none;
+  z-index: 1;
+}
+.timeline-ticks {
+  position: absolute;
+  top: 9px;
+  left: 0; right: 0;
+  height: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+.timeline-ticks .tick {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 5px;
+  background: var(--ink);
+  opacity: 0.45;
+  transform: translateX(-0.5px);
+}
+.timeline-ticks .tick.major {
+  height: 12px;
+  opacity: 1;
+}
+.timeline-labels {
+  position: absolute;
+  top: 25px;
+  left: 0; right: 0;
+  height: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+.timeline-labels .tick-label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+/* Native input is invisible — used only for drag/keyboard input + accessibility.
+   Safari needs explicit appearance:none on input AND thumb; default thumb is otherwise rendered. */
+.timeline input[type="range"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  cursor: ew-resize;
+  -webkit-tap-highlight-color: transparent;
+}
+.timeline input[type="range"]::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 30px;
+  border: none;
+  -webkit-appearance: none;
+}
+.timeline input[type="range"]::-moz-range-track {
+  background: transparent;
+  height: 30px;
+  border: none;
+}
+.timeline input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.timeline input[type="range"]::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 2px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.timeline input[type="range"]:focus { outline: none; }
+.timeline input[type="range"]:focus::-webkit-slider-thumb { background: transparent; }
+
+/* Custom marker — bubble with year label and drag affordance */
+.timeline-marker {
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: filter 150ms ease;
+}
+.timeline-marker-year {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  animation: marker-pulse 2.4s ease-in-out 1.5;
+}
+.timeline-marker-hint {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+.timeline-marker::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 8px;
+  background: var(--ink);
+}
+.timeline:hover .timeline-marker {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+@keyframes marker-pulse {
+  0%, 100% { box-shadow: 0 2px 6px rgba(0,0,0,0.25); }
+  50%       { box-shadow: 0 2px 14px rgba(0,0,0,0.45), 0 0 0 4px rgba(26,26,26,0.08); }
+}
+
+.tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 3px 5px;
+  font-size: 9px;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translate(-50%, -110%);
+  transition: opacity 100ms;
+  z-index: 100;
+  white-space: nowrap;
+}
+.tooltip.show { opacity: 1; }
+
+.mosaic img { cursor: zoom-in; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 200;
+  cursor: zoom-out;
+}
+.lightbox.show { display: flex; }
+.lightbox img {
+  max-width: 70vw;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  background: #1a1a1a;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.5);
+}
+.lightbox-caption {
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* D3 axis text inherits Helvetica via SVG style */
+svg { font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; }
