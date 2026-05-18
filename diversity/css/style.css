@@ -193,7 +193,7 @@ html, body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink);
   flex-wrap: nowrap;
   white-space: nowrap;
